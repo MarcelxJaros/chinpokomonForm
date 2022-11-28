@@ -1,20 +1,39 @@
-import { useFormikContext } from "formik";
+import { useFormik, useFormikContext } from "formik";
 import { useEffect } from "react";
+import { Button, Form } from "react-bootstrap";
+import { FormInitVals } from "../Constants/FormInit";
 import TextBox from "../Controls/TextBox";
 import { IForm } from "../Models/IForm";
+import '../App.css';
+import FormSchema from "../Schemas/FormSchema";
+
 
 export default function ItemForm() {
-  const { values } = useFormikContext<IForm>();
-  // useEffect(() => {
-  //   if (props) {
-  //     //console.log('item', props);
-  //     setValues(props);
-  //   }
-  // }, [props]);
+
+  const onSubmit = () => {
+    console.log("submited!");
+  }
+
+  const { values, setValues, handleBlur, handleChange, handleSubmit } = useFormik({
+    initialValues: FormInitVals,
+    validationSchema: FormSchema,
+    onSubmit,
+  });
+  console.log(values);
+  const clear = () => {
+    setValues(FormInitVals)
+  }
   return (
-    <div>
-      <TextBox id="name" name="Name" label="Name" value={values.name} />
-      {/* <TextBox id="age" name="age" label="Age" value={values.age.toString()} /> */}
-    </div>
+    <form onSubmit={handleSubmit} style={{width: 400}}>
+      <Form.Group>
+        <Form.Label>Name</Form.Label>
+        <Form.Control id="name" type="text" placeholder="your name" value={values.name} onChange={handleChange} />
+
+        <Form.Label>Age</Form.Label>
+        <Form.Control id="age" type="number" placeholder="your age" value={values.age} onChange={handleChange} />
+        <Button className="myButton" type="submit" variant="primary" size="lg">Submit</Button>
+        <Button className="myButton" type="button" variant="secondary" size="lg" onClick={clear}>Clear</Button>
+      </Form.Group>
+    </form>
   )
 }

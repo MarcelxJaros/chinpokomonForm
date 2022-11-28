@@ -4,5 +4,5 @@ import { IForm } from '../Models/IForm';
 export const FormInitVals: IForm = {
   id: uuidv4(),
   name: "",
-  age: 0,
+  age: "",
 }
