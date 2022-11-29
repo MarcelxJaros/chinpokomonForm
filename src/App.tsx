@@ -5,6 +5,9 @@ import clickButton from './Button/Button';
 import ItemForm from './Components/ItemForm';
 import { FormInitVals } from './Constants/FormInit';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import ItemFormComp from './Components/ItemFormComp';
+import CardsComp from './Components/CardsComp';
+import { Stack } from 'react-bootstrap';
 // https://pokeapi.co/docs/v2#pokemon
 function App() {
   const [count, setCount] = useState(0);
@@ -18,22 +21,23 @@ function App() {
     console.log(count);
   }, [count]);
 
-  const handleClick = () => {
+  const handleClick = (): void => {
     console.log("+1");
     // v setteri neposielame value, ale funkciu s parametrom - aktualnou hodnotou 
     setCount(curCount => curCount + 1)
-  }
-
-  const handleSubmit = () => {
-    console.log("submiting");
   }
 
   return (
     <div className="App">
       <header className="App-header">
         <h1>My Form</h1>
-
-        <ItemForm />
+        <Stack direction="horizontal">
+        {/* <button onClick={handleClick} /> */}
+        <ItemFormComp />
+        <CardsComp name={"Pčinkmoon"} text={"lorem ipsum"} image={"https://www.kibrispdr.org/data/804/pokemon-characters-picture-and-name-17.jpg"}/>
+        <CardsComp name={"Pčinkmoon"} text={"lorem ipsum"} image={"https://www.kibrispdr.org/data/804/pokemon-characters-picture-and-name-17.jpg"}/>
+        <CardsComp name={"Pčinkmoon"} text={"lorem ipsum"} image={"https://www.kibrispdr.org/data/804/pokemon-characters-picture-and-name-17.jpg"}/>
+        </Stack>
 
       </header>
     </div>
