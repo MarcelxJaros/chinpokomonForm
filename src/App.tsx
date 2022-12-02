@@ -8,10 +8,16 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import ItemFormComp from './Components/ItemFormComp';
 import CardsComp from './Components/CardsComp';
 import { Stack } from 'react-bootstrap';
+import CardContainer from './Components/CardContainer';
+import { ICards } from './Models/ICards';
+import { v4 as uuidv4 } from 'uuid';
+import { useAtom } from 'jotai';
+import CardsAtom from './Store/CardStore';
 // https://pokeapi.co/docs/v2#pokemon
+
 function App() {
   const [count, setCount] = useState(0);
-  
+
   useEffect(() => {
     console.log("fungujem");
   }, []);
@@ -32,11 +38,12 @@ function App() {
       <header className="App-header">
         <h1>My Form</h1>
         <Stack direction="horizontal">
-        {/* <button onClick={handleClick} /> */}
-        <ItemFormComp />
-        <CardsComp name={"Pčinkmoon"} text={"lorem ipsum"} image={"https://www.kibrispdr.org/data/804/pokemon-characters-picture-and-name-17.jpg"}/>
-        <CardsComp name={"Pčinkmoon"} text={"lorem ipsum"} image={"https://www.kibrispdr.org/data/804/pokemon-characters-picture-and-name-17.jpg"}/>
-        <CardsComp name={"Pčinkmoon"} text={"lorem ipsum"} image={"https://www.kibrispdr.org/data/804/pokemon-characters-picture-and-name-17.jpg"}/>
+          {/* <button onClick={handleClick} /> */}
+          <ItemFormComp />
+          <CardContainer />
+          {/* <CardsComp name={"Pčinkmoon"} text={"lorem ipsum"} image={"https://www.kibrispdr.org/data/804/pokemon-characters-picture-and-name-17.jpg"} /> */}
+          {/* <CardsComp name={"Pčinkmoon"} text={"lorem ipsum"} image={"https://www.kibrispdr.org/data/804/pokemon-characters-picture-and-name-17.jpg"} /> */}
+          
         </Stack>
 
       </header>

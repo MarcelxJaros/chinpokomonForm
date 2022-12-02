@@ -5,4 +5,5 @@ export const FormInitVals: IForm = {
   id: uuidv4(),
   name: "",
   age: "",
+  image: ""
 }

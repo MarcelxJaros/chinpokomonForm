@@ -36,6 +36,12 @@ export default function ItemFormComp() {
             type="number"
             placeholder="your age"
           />
+          <CustomInput
+            label="Image"
+            name="image"
+            type="text"
+            placeholder="paste image url"
+          />
           <Button className="myButton" type="submit" variant="primary" size="lg">Submit</Button>
           <Button className="myButton" type="reset" variant="secondary" size="lg" onClick={ () => props.resetForm()}>Clear</Button>
 
