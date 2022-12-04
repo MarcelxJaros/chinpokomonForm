@@ -17,6 +17,10 @@
   color: #61dafb;
 }
 
+.redStar {
+  color: #ff5c33
+}
+
 .myButton {
   margin-top: 10px;
   margin-right: 10px
@@ -37,6 +41,7 @@ select.input-error {
   height: 6px;
   /* // background-color: black; */
 }
-.card-text {
+.card-text{
   color: black;
+  font-size:14px;
 }

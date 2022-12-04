@@ -1,27 +1,26 @@
 import { useField } from "formik";
 import { Form } from "react-bootstrap";
-import { StringLiteralType } from "typescript";
-import { IForm } from "../Models/IForm"
-interface IFormProps {
-  label: string;
-  name: string;
-  type: string;
-  placeholder: string;
-}
+import { IInputProps } from "../Models/IInputProps";
 
-const CustomInput = (props: IFormProps) => {
-  const { label, ...inputProps } = props;
+const CustomInput = (props: IInputProps) => {
+  const { label, required, ...inputProps } = props;
   // useField is a custom React hook that will automagically help you hook up inputs to Formik.
   const [field, meta, helpers] = useField(props);
   // console.log(field);
+  // console.log(helpers);
   return (
     <>
-      <Form.Label>{label}</Form.Label>
+      <Form.Label>{label}</Form.Label> {required ? <span className="redStar">*</span> : null}
       <br />
       <Form.Control {...field} {...inputProps} className={meta.touched && meta.error ? "input-error" : ""} />
-      {(meta.error && meta.touched) ? <p className="error">{meta.error}</p> : <p className="filler" />}
-        
+      {/* class filler is just invisible element that prevents textboxes to pup up and down whenever error message is displayed */}
+      {(meta.error && meta.touched) ? <p className="error">{meta.error}</p> : <p className="filler" />}   
     </>
   )
-}
-export default CustomInput
+};
+
+// most input boxes are type text, so in IInputProps are these parameters defined as optional and default values are initialized here
+// if you need other values, specify while passing props to component e.g. ... as="textarea" rows={7} or type="number"
+CustomInput.defaultProps = { as: 'input', type: 'text', required: true};
+
+export default CustomInput;

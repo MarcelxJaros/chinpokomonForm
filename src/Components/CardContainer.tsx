@@ -6,10 +6,10 @@ import { useAtom } from "jotai";
 import CardsAtom from "../Store/CardStore";
 
 const CardContainer = () => {
-  const [cardVals1, setCardVals] = useAtom(CardsAtom);
-  const cardVals = useAtom(CardsAtom);
+  console.log("creating cards from cardVals");
+  const [cardVals, setCardVals] = useAtom(CardsAtom);
   var elements=[];
-  elements = cardVals1.map( (item, key) => <CardsComp key={key} myKey={item.myKey} name={item.name} text={item.text} image={item.image} />);
+  elements = cardVals.map( (item, key) => <CardsComp key={key} myKey={item.myKey} name={item.name} power={item.power} text={item.text} image={item.image} />);
   return (
     <>{elements}</>
   )
