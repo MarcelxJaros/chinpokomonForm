@@ -41,20 +41,24 @@ const CardsComp = ({ myKey, name, text, image, power }: ICards) => {
     );
   }, [cardVals]);
 
-
-
   return (
-    <Card key={myKey} style={{ width: '18rem', height: '38rem', margin: 20 }}>
-      <Card.Img variant="top" src={image} />
+    <Card key={myKey} style={{ width: '18rem', height: '36rem', margin: 20 }}>
+      <Card.Img variant="top" title={name} src={image} />
+      {/* <Card.Header className="card-header">{name}</Card.Header> */}
       <Card.Body style={{}}>
         <Card.Title className="card-text">{name}</Card.Title>
         <Card.Text className="card-text">
           Power level: {power} <br />
           {text}
         </Card.Text>
-        <Button id={myKey} className="myButton" type="button" variant="btn btn-outline-primary btn-lg" onClick={e => handleShow(e)} ><AiFillEdit /></Button>
-        <Button id={myKey} className="myButton" type="button" variant="btn btn-outline-danger btn-lg" onClick={e => clickDelete(e)}><AiFillDelete /></Button>
       </Card.Body>
+      <Card.Footer>
+
+
+        <Button id={myKey} className="myCardButton" type="button" variant="btn btn-outline-primary btn-lg" onClick={e => handleShow(e)} ><AiFillEdit /></Button>
+        <Button id={myKey} className="myCardButton" type="button" variant="btn btn-outline-danger btn-lg" onClick={e => clickDelete(e)}><AiFillDelete /></Button>
+      </Card.Footer>
+
     </Card>
 
 

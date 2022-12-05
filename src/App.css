@@ -26,10 +26,19 @@
   margin-right: 10px
 }
 
+.myCardButton {
+  margin-right: 10px
+}
+
+.cardBottomButtons {
+  vertical-align: bottom;
+}
+
 input.input-error,
 select.input-error {
   border-color: red;
 }
+
 .error {
   color: #fc8181;
   font-size: 0.75rem;
@@ -37,11 +46,21 @@ select.input-error {
   margin-top: 0.25rem;
   margin-bottom: 0rem
 }
+
 .filler {
   height: 6px;
   /* // background-color: black; */
 }
-.card-text{
+
+.card-text {
   color: black;
-  font-size:14px;
+  font-size: 17px;
+  /* text-overflow: ellipsis; */
+  /* white-space: nowrap; */
+  /* overflow: hidden; */
+}
+
+.card-header {
+  color: black;
+  font-size: 29px;
 }

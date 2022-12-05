@@ -7,17 +7,17 @@ import { IEditForm } from "../Models/IEditForm";
 import EditSchema from "../Schemas/EditSchema";
 import itemToEditStore from "../Store/ItemToEditStore";
 import CardsAtom from "../Store/CardStore";
+import { useCallback, useMemo } from "react";
 
 const EditModal = () => {
   const [showModal, setShowModal] = useAtom(modalSettings);
   const [itemToEdit, setItemToEdit] = useAtom(itemToEditStore);
   const [cardVals, setCardVals] = useAtom(CardsAtom);
-  
+  let newPower;
+
   const handleClose = () => setShowModal(false);
 
-  const onSubmit = (values: IEditForm, formikHelpers: FormikHelpers<IEditForm>): void => {
-    console.log("editing!")
-    console.log(values)
+  const handleChange = (values: IEditForm) => {
     setCardVals(currState => {
       const newState = currState.map(obj => {
         if (obj.myKey === values.myKey) {
@@ -28,7 +28,14 @@ const EditModal = () => {
 
       return newState;
     });
-    handleClose()
+  }
+  
+  const onSubmit = (values: IEditForm, formikHelpers: FormikHelpers<IEditForm>): void => {
+    console.log("editing!")
+    console.log(values);
+    newPower = values.power;
+    handleChange(values);
+    handleClose();
   }
 
   return (

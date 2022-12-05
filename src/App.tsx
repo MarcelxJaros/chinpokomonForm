@@ -13,14 +13,19 @@ import { v4 as uuidv4 } from 'uuid';
 import { useAtom } from 'jotai';
 import CardsAtom from './Store/CardStore';
 import EditModal from './Components/Modal';
+import axios from 'axios';
+import loading from './Store/LoadingStore';
+import jokeStore from './Store/JokeStore';
 // https://pokeapi.co/docs/v2#pokemon
 
 function App() {
   const [count, setCount] = useState(0);
+  const [joke, setJoke] = useAtom(jokeStore);
 
   useEffect(() => {
     console.log("fungujem");
   }, []);
+
   useEffect(() => {
     // setCount a iné settery sú asynchrónne, (vo fn zobrazuju ako keby jeden state dozadu)
     // aktualnu hodnotu setnutej konštanty treba pozerať v useEffect
@@ -29,6 +34,7 @@ function App() {
 
   const handleClick = (): void => {
     console.log("+1");
+    console.log(joke)
     // v setteri neposielame value, ale funkciu s parametrom - aktualnou hodnotou 
     setCount(curCount => curCount + 1)
   }
