@@ -10,6 +10,7 @@ import CardsAtom from "../Store/CardStore";
 import { useCallback, useMemo } from "react";
 
 const EditModal = () => {
+  console.log("modal is rendered");
   const [showModal, setShowModal] = useAtom(modalSettings);
   const [itemToEdit, setItemToEdit] = useAtom(itemToEditStore);
   const [cardVals, setCardVals] = useAtom(CardsAtom);
@@ -43,8 +44,7 @@ const EditModal = () => {
       <Modal.Header closeButton>
         <Modal.Title>Editing {itemToEdit.name}</Modal.Title>
       </Modal.Header>
-      <Modal.Body>Hello there!! Anyone can make a mistake ;)
-      </Modal.Body>
+      <Modal.Body>Hello there!! Anyone can make a mistake ;) </Modal.Body>
 
       <Formik initialValues={itemToEdit} onSubmit={onSubmit} validationSchema={EditSchema}>
         {(props) => (
@@ -66,12 +66,8 @@ const EditModal = () => {
       </Formik>
       <Modal.Footer style={{ display: 'flex', justifyContent: 'left' }}>
         {/* adding "form" attribute to match with Form "id" attribute, so submit button can be triggered outside of Form componenet */}
-        <Button form='my-form' variant="primary" type="submit" onClick={() => onSubmit}>
-          Save Changes
-        </Button>
-        <Button variant="secondary" onClick={handleClose}>
-          Close
-        </Button>
+        <Button form='my-form' variant="primary" type="submit" onClick={() => onSubmit}>Save Changes</Button>
+        <Button variant="secondary" onClick={handleClose}>Close</Button>
       </Modal.Footer>
     </Modal >
   )

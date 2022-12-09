@@ -30,6 +30,7 @@ export default function ItemFormComp() {
   }
 
   useEffect(() => {
+    setIsLoading(true)
     console.log("fungujem");
     getJoke().then((joke) => { setJoke(joke); setIsLoading(false) });
   }, []);
@@ -91,7 +92,7 @@ export default function ItemFormComp() {
             name="image"
             placeholder="paste image url"
           />
-          <Button className="myButton" type="submit" variant="primary" size="lg">Submit</Button>
+          <Button className="myButton" type="submit" variant="primary" size="lg" disabled={isLoading}>Submit</Button>
           <Button className="myButton" type="reset" variant="secondary" size="lg" onClick={() => props.resetForm()}>Clear</Button>
         </Form>
 

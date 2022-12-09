@@ -12,7 +12,7 @@ import modalSettings from '../Store/ModalStore';
 // const CardsComp = (props: ICardProps) => {
 const CardsComp = ({ myKey, name, text, image, power }: ICards) => {
   // const { name, text, image} = props;
-  // console.log("myKey:", myKey);
+  console.log(name);
   const [cardVals, setCardVals] = useAtom(CardsAtom);
   const [showModal, setShowModal] = useAtom(modalSettings);
   const [itemToEdit, setItemToEdit] = useAtom(itemToEditStore);
@@ -22,7 +22,7 @@ const CardsComp = ({ myKey, name, text, image, power }: ICards) => {
     let itemToEdit = cardVals.find(obj => {
       return obj.myKey === clickedId;
     });
-    console.log(itemToEdit);
+    console.log("itemToEdit:", itemToEdit?.name);
     if (itemToEdit != undefined) {
       setItemToEdit(itemToEdit);
     }
