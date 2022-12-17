@@ -1,7 +1,5 @@
 import * as Yup from 'yup'
 import { IEditForm } from '../Models/IEditForm';
-import { IForm } from '../Models/IForm'
-
 
 const EditSchema = Yup.object().shape<
 Record<keyof IEditForm, Yup.AnySchema>>({

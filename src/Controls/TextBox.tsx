@@ -1,4 +1,4 @@
-import { ITextFieldProps, TextField } from '@fluentui/react';
+import { TextField } from '@fluentui/react';
 import { useField, useFormikContext } from 'formik';
 import { useCallback, useMemo } from 'react';
 import { IForm } from '../Models/IForm';

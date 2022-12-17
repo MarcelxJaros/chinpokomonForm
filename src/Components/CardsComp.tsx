@@ -1,18 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useAtom } from 'jotai';
-import { MouseEvent, useCallback, useEffect, useState } from 'react';
+import { MouseEvent, useCallback, useEffect } from 'react';
 import { Button, Card } from 'react-bootstrap';
-import Modal from 'react-bootstrap/Modal';
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { ICards } from '../Models/ICards';
 import CardsAtom from '../Store/CardStore';
 import itemToEditStore from '../Store/ItemToEditStore';
 import modalSettings from '../Store/ModalStore';
 
-// const CardsComp = (props: ICardProps) => {
 const CardsComp = ({ myKey, name, text, image, power }: ICards) => {
-  // const { name, text, image} = props;
-  console.log(name);
   const [cardVals, setCardVals] = useAtom(CardsAtom);
   const [showModal, setShowModal] = useAtom(modalSettings);
   const [itemToEdit, setItemToEdit] = useAtom(itemToEditStore);
@@ -44,7 +40,6 @@ const CardsComp = ({ myKey, name, text, image, power }: ICards) => {
   return (
     <Card key={myKey} style={{ width: '18rem', height: '36rem', margin: 20 }}>
       <Card.Img variant="top" title={name} src={image} />
-      {/* <Card.Header className="card-header">{name}</Card.Header> */}
       <Card.Body style={{}}>
         <Card.Title className="card-text">{name}</Card.Title>
         <Card.Text className="card-text">

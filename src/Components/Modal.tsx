@@ -2,19 +2,17 @@ import { useAtom } from "jotai";
 import { Button, Modal } from "react-bootstrap";
 import modalSettings from "../Store/ModalStore";
 import CustomInput from "./CustomInput";
-import { Formik, FormikHelpers, Form, useFormik, useFormikContext } from "formik";
+import { Formik, FormikHelpers, Form } from "formik";
 import { IEditForm } from "../Models/IEditForm";
 import EditSchema from "../Schemas/EditSchema";
 import itemToEditStore from "../Store/ItemToEditStore";
 import CardsAtom from "../Store/CardStore";
-import { useCallback, useMemo } from "react";
 
 const EditModal = () => {
   console.log("modal is rendered");
   const [showModal, setShowModal] = useAtom(modalSettings);
   const [itemToEdit, setItemToEdit] = useAtom(itemToEditStore);
   const [cardVals, setCardVals] = useAtom(CardsAtom);
-  let newPower;
 
   const handleClose = () => setShowModal(false);
 
@@ -26,7 +24,6 @@ const EditModal = () => {
         }
         return obj;
       });
-
       return newState;
     });
   }
@@ -34,7 +31,6 @@ const EditModal = () => {
   const onSubmit = (values: IEditForm, formikHelpers: FormikHelpers<IEditForm>): void => {
     console.log("editing!")
     console.log(values);
-    newPower = values.power;
     handleChange(values);
     handleClose();
   }

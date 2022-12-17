@@ -6,8 +6,7 @@ const CustomInput = (props: IInputProps) => {
   const { label, required, ...inputProps } = props;
   // useField is a custom React hook that will automagically help you hook up inputs to Formik.
   const [field, meta, helpers] = useField(props);
-  // console.log(field);
-  // console.log(helpers);
+
   return (
     <>
       <Form.Label>{label}</Form.Label> {required ? <span className="redStar">*</span> : null}
