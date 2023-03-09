@@ -38,7 +38,7 @@ const CardsComp = ({ myKey, name, text, image, power }: ICards) => {
   }, [cardVals]);
 
   return (
-    <Card key={myKey} style={{ width: '18rem', height: '36rem', margin: 20 }}>
+    <Card key={myKey} className="card-element">
       <Card.Img variant="top" title={name} src={image} />
       <Card.Body style={{}}>
         <Card.Title className="card-text">{name}</Card.Title>
