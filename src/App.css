@@ -36,3 +36,61 @@
     transform: rotate(360deg);
   }
 }
+<<<<<<< Updated upstream
+=======
+
+input.input-error,
+select.input-error {
+  border-color: red;
+}
+
+.error {
+  color: #fc8181;
+  font-size: 0.75rem;
+  text-align: left;
+  margin-top: 0.25rem;
+  margin-bottom: 0rem
+}
+
+.filler {
+  height: 6px;
+  /* // background-color: black; */
+}
+
+.card-text {
+  color: black;
+  font-size: 17px;
+  /* text-overflow: ellipsis; */
+  /* white-space: nowrap; */
+  /* overflow: hidden; */
+}
+
+.card-header {
+  color: black;
+  font-size: 29px;
+}
+
+.vertical-stack {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-self: stretch;
+  align-items: center;
+}
+
+/* .card-body meesses up the styling */
+.card-element {
+  width: 18rem !important;
+  height: 36rem !important;
+  margin: 20px !important;
+  color: red !important;
+  padding: 0px !important;
+  min-width: 165px !important;
+}
+
+.form {
+  width: 400px;
+  margin: 50px;
+  min-width: 200px !important;
+}
+>>>>>>> Stashed changes
