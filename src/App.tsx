@@ -33,7 +33,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>My Chinpokomons</h1>
-        <Stack direction="horizontal">
+        <Stack direction="horizontal"> 
           <ItemFormComp />
           <CardContainer /> 
         </Stack>
