@@ -64,3 +64,27 @@ select.input-error {
   color: black;
   font-size: 29px;
 }
+
+.vertical-stack {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-self: stretch;
+  align-items: center;
+}
+
+/* .card-body meesses up the styling */
+.card-element {
+  width: 18rem !important;
+  height: 36rem !important;
+  margin: 20px !important;
+  color: red !important;
+  padding: 0px !important;
+  min-width: 165px !important;
+}
+
+.form {
+  width: 300px;
+  margin: 50px;
+  min-width: 200px !important;
+}

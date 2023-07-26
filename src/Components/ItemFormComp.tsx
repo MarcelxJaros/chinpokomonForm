@@ -45,7 +45,7 @@ export default function ItemFormComp() {
   return (
     <Formik initialValues={FormInitVals} onSubmit={onSubmit} validationSchema={FormSchema}>
       {(props) => (
-        <Form style={{ width: 400, margin: 50 }}>
+        <Form className="form">
           {/* <Field /> will automagically hook up inputs to Formik. It uses the name attribute to match up with Formik state. */}
           <CustomInput
             label="Name"

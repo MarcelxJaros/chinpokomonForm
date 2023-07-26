@@ -7,33 +7,40 @@ import CardContainer from './Components/CardContainer';
 import { useAtom } from 'jotai';
 import EditModal from './Components/Modal';
 import jokeStore from './Store/JokeStore';
+import useWindowSize from './Components/WindowSize';
+import { Size } from './Models/IWindowSize';
+import { StackDirection } from 'react-bootstrap/esm/Stack';
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [joke, setJoke] = useAtom(jokeStore);
+  const size: Size = useWindowSize();
+  const [direction, setDirection] = useState<StackDirection>("horizontal")
 
   useEffect(() => {
-    console.log("fungujem");
+    console.log("Hello, world!")
+    if (size.width !== undefined && size.width > 520) {
+      setDirection("horizontal")
+    } else {
+      setDirection("vertical")
+    }
   }, []);
 
   useEffect(() => {
     // setCount a iné settery sú asynchrónne, (vo fn zobrazuju ako keby jeden state dozadu)
     // aktualnu hodnotu setnutej konštanty treba pozerať v useEffect
-    console.log(count);
-  }, [count]);
+    console.log(size);
+    if (size.width !== undefined && size.width > 520) {
+      setDirection("horizontal")
+    } else {
+      setDirection("vertical")
+    }
+  }, [size]);
 
-  const handleClick = (): void => {
-    console.log("+1");
-    console.log(joke)
-    // v setteri neposielame value, ale funkciu s parametrom - aktualnou hodnotou 
-    setCount(curCount => curCount + 1)
-  }
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1>My Chinpokomons</h1>
-        <Stack direction="horizontal"> 
+        <h1>My Chinpokomons {direction}</h1>
+        <Stack direction={direction} className={direction === "vertical" ? "vertical-stack" : ""}> 
           <ItemFormComp />
           <CardContainer /> 
         </Stack>
